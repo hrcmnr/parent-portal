@@ -21,22 +21,29 @@ $pre_registrations = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Admin Dashboard</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles_admin.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
-    <div class="sidebar">
-        <h2><?php echo htmlspecialchars($_SESSION['username']); ?></h2>
-        <a href="admin_dashboard.php">Pre-Registrations</a>
-        <a href="registered_users.php">Registered Users</a>
-        <a href="index.php">Logout</a>
-    </div>
+
+<div class="sidebar">
+    <h2><?php echo htmlspecialchars($_SESSION['username']); ?></h2>
+    <a href="admin_dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <a href="registered_users.php"><i class="fas fa-users"></i> Registered Users</a>
+    <a href="#"><i class="fas fa-user-friends"></i> Parent Participation</a>
+    <a href="create_announcement.php"><i class="fas fa-bullhorn"></i> Announcement</a>
+    <a href="create_event.php"><i class="fas fa-calendar-alt"></i> Create Events</a>
+    <a href="generate_request.php"><i class="fas fa-file-alt"></i> Generate Request</a>
+    <a href="index.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+</div>
 
     <div class="content">
+    <h1>Dashboard</h1>
         <h2 class="mt-5">Pre-Registrations for Approval</h2>
         <table class="table mt-3">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Surname</th>
                     <th>First Name</th>
                     <th>Email</th>
@@ -47,7 +54,6 @@ $pre_registrations = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php if (count($pre_registrations) > 0): ?>
                     <?php foreach ($pre_registrations as $registration): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($registration['id']); ?></td>
                             <td><?php echo htmlspecialchars($registration['parent_surname']); ?></td>
                             <td><?php echo htmlspecialchars($registration['parent_first_name']); ?></td>
                             <td><?php echo htmlspecialchars($registration['parent_email']); ?></td>

@@ -94,13 +94,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Pre-Registration Status</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="styles_submit.css">
 </head>
 <body>
     <div class="container mt-5">
-        <h2>Pre-Registration Status</h2>
-        <?php
-            // Success or error messages are displayed above
-        ?>
+        <h2 class="text-center">Pre-Registration Status</h2>
+        <div class="status-card p-4 mt-4">
+            <?php
+                // Success or error messages will be displayed here
+                // Example message
+                echo '<div class="alert alert-success" role="alert">Your pre-registration was successful!</div>';
+                // Uncomment the next line to display an error message
+                // echo '<div class="alert alert-danger" role="alert">There was an error with your pre-registration.</div>';
+            ?>
+        </div>
         <a href="index.php" class="btn btn-secondary mt-3">Return to Home</a>
     </div>
 
@@ -110,3 +118,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
