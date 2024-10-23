@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pre-Registration</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles_pre_registration.css"> <!-- Link to custom CSS for additional styling -->
 </head>
+
 <body>
     <div class="container">
-        <h2 class="mt-5">Pre-Registration</h2>
+        <h2 class="text-center">Pre-Registration</h2>
         <form action="submit_pre_registration.php" method="POST" enctype="multipart/form-data" class="mt-3" onsubmit="return validateForm()">
             <!-- Parent's Information -->
             <div class="form-group">
@@ -43,7 +47,7 @@
             </div>
 
             <!-- Child's Information -->
-            <h4>Child's Information</h4>
+            <h4 class="mt-4">Child's Information</h4>
             <div class="form-group">
                 <label for="child_surname">Child's Surname:</label>
                 <input type="text" id="child_surname" name="child_surname" class="form-control" required>
@@ -65,7 +69,7 @@
                 <input type="file" id="child_picture" name="child_picture" class="form-control-file" accept="image/*" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
         </form>
     </div>
 
@@ -96,4 +100,5 @@
         }
     </script>
 </body>
+
 </html>
