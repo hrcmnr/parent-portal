@@ -17,11 +17,12 @@ session_start(); // Always start the session at the beginning
 <div class="sidebar">
     <h2><?php echo htmlspecialchars($_SESSION['username']); ?></h2>
     <a href="admin_dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-    <a href="registered_users.php"><i class="fas fa-users"></i> Registered Users</a>
+    <a href="registered_users.php"><i class="fas fa-users"></i> Users</a>
     <a href="#"><i class="fas fa-user-friends"></i> Parent Participation</a>
     <a href="create_announcement.php"><i class="fas fa-bullhorn"></i> Announcement</a>
     <a href="create_event.php"><i class="fas fa-calendar-alt"></i> Create Events</a>
-    <a href="generate_request.php"><i class="fas fa-file-alt"></i> Generate Request</a>
+    <a href="admin_dashboard.php"><i class="fas fa-file-alt"></i> View Request</a>
+    <a href="client_profile.php"><i class="fas fa-user-circle"></i> Client Profile</a>
     <a href="index.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
 </body>
