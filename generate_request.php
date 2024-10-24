@@ -1,6 +1,7 @@
 <?php
 require 'db_connection.php'; // Include your database connection script
 
+
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $date = $_POST['date'];
@@ -23,13 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         // Allow certain file formats (e.g., jpg, png, pdf)
-        if ($fileType != "jpg" && $fileType != "png" && $fileType != "pdf") {
+        if (!in_array($fileType, ['jpg', 'png', 'pdf'])) {
             echo "Sorry, only JPG, PNG & PDF files are allowed.";
             $uploadOk = 0;
         }
 
         // Check if $uploadOk is set to 0 by an error
-        if ($uploadOk == 0) {
+        if ($uploadOk === 0) {
             echo "Sorry, your file was not uploaded.";
         } else {
             // If everything is ok, try to upload the file
@@ -41,19 +42,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // Prepare the SQL statement for insertion, using username instead of email
+    // Prepare the SQL statement for insertion
     $sql = "INSERT INTO requests (date, username, title, body" . ($file_path ? ", file_path" : "") . ") VALUES (:date, :username, :title, :body" . ($file_path ? ", :file_path" : "") . ")";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':date', $date);
-    $stmt->bindParam(':username', $username); // Bind the username
+    $stmt->bindParam(':username', $username);
     $stmt->bindParam(':title', $title);
-
-    // If body is empty, set it to NULL
-    if (empty($body)) {
-        $stmt->bindValue(':body', null, PDO::PARAM_NULL);
-    } else {
-        $stmt->bindParam(':body', $body);
-    }
+    $stmt->bindValue(':body', $body ?: null, PDO::PARAM_NULL); // Use null if body is empty
 
     // Only bind file_path if it's set
     if ($file_path) {
@@ -75,18 +70,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate Request</title>
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> <!-- Your custom CSS if needed -->
 </head>
 <body>
 
-<?php include 'admin_sidebar.php'; ?> 
+<?php include 'parent_sidebar.php'; ?> <!-- Changed to parent_sidebar.php -->
 
 <div class="content container mt-4">
     <div class="card shadow">
         <div class="card-header bg-white text-white">
-        <h3 class="mb-0 text-dark">Generate Request</h3>
+            <h3 class="mb-0 text-dark">Generate Request</h3>
         </div>
         <div class="card-body">
             <form action="generate_request.php" method="POST" enctype="multipart/form-data">

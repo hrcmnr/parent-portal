@@ -1,0 +1,37 @@
+/* Custom styles for the modal */
+.modal-header {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #ffffff; /* White text for the header */
+}
+
+.modal-title {
+    font-weight: bold; /* Make the title bold */
+}
+
+.modal-body {
+    background-color: #f8f9fa; /* Light background for the body */
+}
+
+.modal-footer {
+    background-color: #e9ecef; /* Slightly darker background for the footer */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-dialog {
+        max-width: 90%; /* Allow more width on smaller screens */
+    }
+}
+
+.table th {
+    background-color: #007bff; /* Header color for the details table */
+    color: #ffffff; /* White text for table header */
+}
+
+.table tr {
+    border-bottom: 1px solid #dee2e6; /* Add a border to table rows */
+}
+
+.table td {
+    vertical-align: middle; /* Align table data vertically in the middle */
+}
