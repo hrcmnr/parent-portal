@@ -34,7 +34,7 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
             <a href="enroll.php" class="d-block py-2"><i class="fas fa-user-plus"></i> Enroll</a>
             <a href="history.php" class="d-block py-2"><i class="fas fa-history"></i> History</a>
             <a href="generate_request.php" class="d-block py-2"><i class="fas fa-paper-plane"></i> Request Form</a>
-            <a href="profile_edit_page1.php" class="d-block py-2"><i class="fas fa-user-circle"></i> Parent Profile</a>
+            <a href="profile_page1.php" class="d-block py-2"><i class="fas fa-user-circle"></i> Parent Profile</a>
         </div>
 
         <a href="index.php" class="d-block py-2"><i class="fas fa-sign-out-alt"></i> Logout</a>

@@ -35,7 +35,7 @@ $pre_registrations = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <a href="create_announcement.php"><i class="fas fa-bullhorn"></i> Announcement</a>
     <a href="create_event.php"><i class="fas fa-calendar-alt"></i> Create Events</a>
     <a href="admin_dashboard.php"><i class="fas fa-file-alt"></i> View Request</a>
-    <a href="client_profile.php"><i class="fas fa-user-circle"></i> Client Profile</a>
+    <!-- <a href="client_profile.php"><i class="fas fa-user-circle"></i> Client Profile</a> -->
     <a href="index.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
 

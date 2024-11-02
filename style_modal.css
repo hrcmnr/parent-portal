@@ -1,4 +1,3 @@
-/* Custom styles for the modal */
 .modal-header {
     background-color: #007bff; /* Bootstrap primary color */
     color: #ffffff; /* White text for the header */
@@ -14,6 +13,10 @@
 
 .modal-footer {
     background-color: #e9ecef; /* Slightly darker background for the footer */
+}
+
+.modal-footer.text-left {
+    text-align: left;
 }
 
 /* Responsive adjustments */
