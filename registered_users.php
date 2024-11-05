@@ -65,54 +65,67 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id'])) {
 <body>
     <?php include 'admin_sidebar.php'; ?>
 
-    <div class="content container mt-4">
-        <h1 class="mb-4">Users List</h1>
+    <div class="container-fluid">
+        <div class="content p-4">
+            <h1 class="display-6 mb-4">Registered Users</h1>
 
-        <!-- Search Button -->
-        <form method="POST" class="mb-4">
-            <div class="input-group col-md-6">
+<!-- Button Container -->
+<div class="d-flex justify-content-between align-items-center mb-4 w-100">
+    <!-- Refresh Button -->
+    <form method="POST" class="mb-0">
+        <button type="submit" class="btn btn-outline-secondary" name="refresh">
+            <i class="fas fa-sync-alt"></i> Refresh
+        </button>
+    </form>
+
+    <!-- Search Form Container -->
+    <div class="ms-auto">
+        <form method="POST" class="mb-0">
+            <div class="input-group" style="width: 250px;">
                 <input type="text" name="search_value" value="<?= htmlspecialchars($searchValue); ?>" class="form-control" placeholder="Search by Acc. ID, Username, Email, or Account Type" aria-label="Search" required>
-                <div class="input-group-append">
-                    <button type="submit" name="search" class="btn btn-primary">Search</button>
-                </div>
+                <button type="submit" name="search" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Search
+                </button>
             </div>
         </form>
+    </div>
+</div>
 
-        <!-- Refresh Button -->
-        <form method="POST" class="mb-4">
-            <button type="submit" class="btn btn-secondary" name="refresh">Refresh</button>
-        </form>
 
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped">
-                <thead class="thead-light">
-                    <tr>
-                        <th>Acc. ID</th>
-                        <th>Username</th>
-                        <th>Parent Email</th>
-                        <th>Account Type</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($users as $user): ?>
-                        <tr>
-                            <td><?= htmlspecialchars($user['id']); ?></td>
-                            <td>
-                                <input type="text" name="username" value="<?= htmlspecialchars($user['username']); ?>" class="form-control" readonly required>
-                                <input type="hidden" name="user_id" value="<?= htmlspecialchars($user['id']); ?>">
-                            </td>
-                            <td><?= htmlspecialchars($user['email']); ?></td>
-                            <td><?= htmlspecialchars($user['role']); ?></td>
-                            <td>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal-<?= htmlspecialchars($user['id']); ?>">
-                                    Update
-                                </button>
-                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#viewModal-<?= htmlspecialchars($user['id']); ?>">
-                                    View
-                                </button>
-                            </td>
-                        </tr>
+<!-- Table -->
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="text-center"></th>
+                <th class="text-center">Username</th>
+                <th class="text-center">Parent Email</th>
+                <th class="text-center">Account Type</th>
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($users as $user): ?>
+                <tr>
+                    <td class="text-center"><?= htmlspecialchars($user['id']); ?></td>
+                    <td class="text-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <input type="text" name="username" value="<?= htmlspecialchars($user['username']); ?>" class="form-control me-2" readonly required style="width: 150px;">
+                            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#updateModal-<?= htmlspecialchars($user['id']); ?>">
+                                Update
+                            </button>
+                        </div>
+                        <input type="hidden" name="user_id" value="<?= htmlspecialchars($user['id']); ?>">
+                    </td>
+                    <td class="text-center"><?= htmlspecialchars($user['email']); ?></td>
+                    <td class="text-center"><?= htmlspecialchars($user['role']); ?></td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#viewModal-<?= htmlspecialchars($user['id']); ?>">
+                            View Profile
+                        </button>
+                    </td>
+                </tr>
+            </div>
 
 <!-- Modal for Viewing User Profile -->
 <div class="modal fade" id="viewModal-<?= htmlspecialchars($user['id']); ?>" tabindex="-1" aria-labelledby="viewModalLabel-<?= htmlspecialchars($user['id']); ?>" aria-hidden="true">
@@ -203,8 +216,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id'])) {
         </div>
     </div>
 </div>
-
-
                         <!-- Modal for Updating User Profile -->
                         <div class="modal fade" id="updateModal-<?= htmlspecialchars($user['id']); ?>" tabindex="-1" aria-labelledby="updateModalLabel-<?= htmlspecialchars($user['id']); ?>" aria-hidden="true">
                             <div class="modal-dialog">
@@ -241,10 +252,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id'])) {
         </div>
     </div>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Include Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Optional: Include jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

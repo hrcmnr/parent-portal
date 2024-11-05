@@ -38,30 +38,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <?php include 'admin_sidebar.php'; ?> <!-- Include the sidebar here -->
 
-<div class="content container mt-4">
-    <div class="card shadow">
-        <div class="card-header bg-white">
-            <h3 class="mb-0 text-dark">Create Announcement</h3>
-        </div>
-        <div class="card-body">
-            <form action="create_announcement.php" method="POST">
-                <div class="form-group">
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" class="form-control" required>
-                </div>
+<div class="content">
+    <div class="container mt-4">
+        <div class="card shadow">
+            <div class="card-header bg-white">
+                <h3 class="mb-0 text-dark">Create Announcement</h3>
+            </div>
+            <div class="card-body">
+                <form action="create_announcement.php" method="POST">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" class="form-control" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" class="form-control" required>
-                </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" class="form-control" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="body">Announcement Body:</label>
-                    <textarea id="body" name="body" rows="5" class="form-control" required></textarea>
-                </div>
+                    <div class="form-group">
+                        <label for="body">Announcement Body:</label>
+                        <textarea id="body" name="body" rows="5" class="form-control" required></textarea>
+                    </div>
 
-                <button type="submit" class="btn btn-primary btn-block">Submit</button>
-            </form>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
