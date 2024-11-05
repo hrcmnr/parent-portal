@@ -83,7 +83,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <?php include 'admin_sidebar.php'; ?> 
 
-<div class="content container mt-4">
+<div class="content">
+<div class="container mt-4">
     <div class="card shadow">
         <div class="card-header bg-white text-white">
         <h3 class="mb-0 text-dark">Generate Request</h3>
@@ -119,6 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </form>
         </div>
     </div>
+</div>
 </div>
 
 <!-- Bootstrap JS and dependencies -->

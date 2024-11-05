@@ -25,9 +25,9 @@ $allRequests = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <?php include 'parent_sidebar.php'; ?> <!-- Include the sidebar here -->
 
-<div class="content">
-<div class="container mt-4">
-    <h3>Inbox</h3>
+<div class="container-fluid">
+    <div class="content p-4">
+        <h1 class="display-6 mb-4">Inbox</h1>
     <div class="row">
         <?php if (empty($allRequests)): ?>
             <div class="col-md-12">

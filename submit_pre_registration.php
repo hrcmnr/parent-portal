@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Check if there are any errors
     if (empty($errors)) {
-        // Insert data into PostgreSQL database
+        // Insert data into database
         try {
             $sql = "INSERT INTO pre_registration 
             (parent_surname, parent_first_name, parent_middle_name, role, parent_email, parent_picture, 
@@ -72,8 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 ':child_picture' => $childFilePath
             ]);
             
-            // Success message
-            echo "<div class='alert alert-success'>Pre-registration submitted successfully!</div>";
+             // Removed the success message
+            // echo "<div class='alert alert-success'>Pre-registration submitted successfully!</div>";
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Link to the external CSS file -->
-    <link rel="stylesheet" href="styles_submit.css">
+    <link rel="stylesheet" href="css/styles_submit.css">
 </head>
 <body>
     <div class="container mt-5">
